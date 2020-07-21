@@ -29,3 +29,22 @@ def show(request, show_id):
 def delete(request, show_id):
     Show.objects.get(id=show_id).delete()
     return redirect('/shows')
+
+def edit(request, show_id):
+    context = {
+    'show' : Show.objects.get(id=show_id)
+    }
+    return render(request,'edit.html', context)
+
+def updateShow(request, show_id):
+    show = Show.objects.get(id=show_id)
+    if len(request.POST['title']) > 1:
+        show.title = request.POST['title']
+    if len(request.POST['network']) > 1:
+        show.network = request.POST['network']
+    if len(request.POST['description']) > 1:
+        show.description = request.POST['description']
+    if len(request.POST['title']) > 1:
+        show.releaseDate = request.POST['releaseDate']
+    show.save()
+    return redirect('/shows')

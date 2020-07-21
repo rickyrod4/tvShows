@@ -24,7 +24,7 @@
                 <td>{{ show.title }}</td>
                 <td>{{ show.network }}</td>
                 <td>{{ show.releaseDate }}</td>
-                <td><a href="/shows/{{ show.id }}">Show</a> <a href="">Edit</a> <a href="/delete/{{ show.id }}">Delete</a></td>
+                <td><a href="/shows/{{ show.id }}">Show</a> <a href="/edit/{{ show.id }}">Edit</a> <a href="/delete/{{ show.id }}">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>        
